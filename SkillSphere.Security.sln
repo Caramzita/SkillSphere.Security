@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSphere.Security.API", "src\SkillSphere.Security.API\SkillSphere.Security.API.csproj", "{76A71B7C-633C-48B0-9BBD-FC97DC9E6ED0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSphere.Security.DataAccess", "src\SkillSphere.Security.DataAccess\SkillSphere.Security.DataAccess.csproj", "{1FA13832-D2D9-4432-A4BB-7CEE82836097}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSphere.Security.Core", "src\SkillSphere.Security.Core\SkillSphere.Security.Core.csproj", "{97508188-FB0F-4B3F-A16E-A6B74CAC0883}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSphere.Security.Contracts", "src\SkillSphere.Security.Contracts\SkillSphere.Security.Contracts.csproj", "{AC5B7CCB-EB1C-4EE9-85D8-AD64C3E546B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSphere.Security.UseCases", "src\SkillSphere.Security.UseCases\SkillSphere.Security.UseCases.csproj", "{B14C27B9-B770-4A07-93F3-A0A6F4FF355B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76A71B7C-633C-48B0-9BBD-FC97DC9E6ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76A71B7C-633C-48B0-9BBD-FC97DC9E6ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76A71B7C-633C-48B0-9BBD-FC97DC9E6ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76A71B7C-633C-48B0-9BBD-FC97DC9E6ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FA13832-D2D9-4432-A4BB-7CEE82836097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FA13832-D2D9-4432-A4BB-7CEE82836097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FA13832-D2D9-4432-A4BB-7CEE82836097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FA13832-D2D9-4432-A4BB-7CEE82836097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97508188-FB0F-4B3F-A16E-A6B74CAC0883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97508188-FB0F-4B3F-A16E-A6B74CAC0883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97508188-FB0F-4B3F-A16E-A6B74CAC0883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97508188-FB0F-4B3F-A16E-A6B74CAC0883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC5B7CCB-EB1C-4EE9-85D8-AD64C3E546B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC5B7CCB-EB1C-4EE9-85D8-AD64C3E546B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC5B7CCB-EB1C-4EE9-85D8-AD64C3E546B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC5B7CCB-EB1C-4EE9-85D8-AD64C3E546B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B14C27B9-B770-4A07-93F3-A0A6F4FF355B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B14C27B9-B770-4A07-93F3-A0A6F4FF355B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B14C27B9-B770-4A07-93F3-A0A6F4FF355B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B14C27B9-B770-4A07-93F3-A0A6F4FF355B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3E61437-C379-498F-932B-D8E73ED560C0}
+	EndGlobalSection
+EndGlobal
