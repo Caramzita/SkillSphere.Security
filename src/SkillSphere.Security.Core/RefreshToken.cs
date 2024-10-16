@@ -10,17 +10,17 @@ public class RefreshToken
     /// <summary>
     /// Уникальный идентификатор токена обновления.
     /// </summary>
-    public Guid Id { get; }
+    public Guid Id { get; init; }
 
     /// <summary>
     /// Сгенерированный токен обновления.
     /// </summary>
-    public string Token { get; }
+    public string Token { get; private set; }
 
     /// <summary>
     /// Дата и время истечения срока действия токена.
     /// </summary>
-    public DateTime Expires { get; }
+    public DateTime Expires { get; private set; }
 
     /// <summary>
     /// Определяет, был ли токен использован.
@@ -30,7 +30,7 @@ public class RefreshToken
     /// <summary>
     /// Идентификатор пользователя, которому принадлежит токен обновления.
     /// </summary>
-    public Guid UserId { get; }
+    public Guid UserId { get; private set; }
 
     /// <summary>
     /// Инициализирует новый экземпляр класса <see cref="RefreshToken"/> 

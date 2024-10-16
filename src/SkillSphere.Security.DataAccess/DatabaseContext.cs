@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
-using SkillSphere.Security.Contracts.DTOs;
+using SkillSphere.Security.Core;
 
 namespace SkillSphere.Security.DataAccess;
 
@@ -24,12 +24,12 @@ public class DatabaseContext : DbContext
     /// <summary>
     /// Таблица пользователей.
     /// </summary>
-    public DbSet<UserEntity> Users { get; set; }
+    public DbSet<User> Users { get; set; }
 
     /// <summary>
     /// Таблица токенов обновления.
     /// </summary>
-    public DbSet<RefreshTokenEntity> RefreshTokens { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     /// <summary>
     /// Инициализирует новый экземпляр класса <see cref="DatabaseContext"/>.

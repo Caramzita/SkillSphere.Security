@@ -87,7 +87,7 @@ public class Program
         services.AddDbContext<DatabaseContext>();
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterCommand).Assembly));
-        services.AddAutoMapper(typeof(RepositoryMappingProfile).Assembly, typeof(ControllerMappingProfile).Assembly);
+        services.AddAutoMapper(typeof(ControllerMappingProfile).Assembly);
 
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRepository, UserRepository>();

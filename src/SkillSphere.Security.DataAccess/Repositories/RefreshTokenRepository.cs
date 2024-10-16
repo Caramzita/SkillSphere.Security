@@ -46,9 +46,7 @@ public class RefreshTokenRepository : IRefreshTokenRepository
     /// <inheritdoc/>
     public async Task CreateAsync(RefreshToken token)
     {
-        var entity = _mapper.Map<RefreshTokenEntity>(token);
-
-        await _context.RefreshTokens.AddAsync(entity).ConfigureAwait(false);
+        await _context.RefreshTokens.AddAsync(token).ConfigureAwait(false);
         await _context.SaveChangesAsync().ConfigureAwait(false);
     }
 
@@ -56,9 +54,8 @@ public class RefreshTokenRepository : IRefreshTokenRepository
     public async Task DeactivateAsync(RefreshToken token)
     {
         token.Deactivate();
-        var entity = _mapper.Map<RefreshTokenEntity>(token);
 
-        _context.RefreshTokens.Update(entity);
+        _context.RefreshTokens.Update(token);
         await _context.SaveChangesAsync().ConfigureAwait(false);
     }
 
@@ -70,7 +67,7 @@ public class RefreshTokenRepository : IRefreshTokenRepository
             .ToListAsync()
             .ConfigureAwait(false);
 
-        tokens.ForEach(x => x.IsUsed = true);
+        tokens.ForEach(x => x.Deactivate());
         await _context.SaveChangesAsync().ConfigureAwait(false);
     }
 }

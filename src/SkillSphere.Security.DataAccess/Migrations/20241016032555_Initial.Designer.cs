@@ -12,7 +12,7 @@ using SkillSphere.Security.DataAccess;
 namespace SkillSphere.Security.DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240910183045_Initial")]
+    [Migration("20241016032555_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace SkillSphere.Security.DataAccess.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("SkillSphere.Security.Contracts.DTOs.RefreshTokenDto", b =>
+            modelBuilder.Entity("SkillSphere.Security.Core.RefreshToken", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace SkillSphere.Security.DataAccess.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
-            modelBuilder.Entity("SkillSphere.Security.Contracts.DTOs.UserDto", b =>
+            modelBuilder.Entity("SkillSphere.Security.Core.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,9 +83,9 @@ namespace SkillSphere.Security.DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SkillSphere.Security.Contracts.DTOs.RefreshTokenDto", b =>
+            modelBuilder.Entity("SkillSphere.Security.Core.RefreshToken", b =>
                 {
-                    b.HasOne("SkillSphere.Security.Contracts.DTOs.UserDto", null)
+                    b.HasOne("SkillSphere.Security.Core.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

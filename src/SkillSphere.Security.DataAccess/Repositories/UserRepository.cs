@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using SkillSphere.Security.Contracts.DTOs;
 using SkillSphere.Security.Core;
 using SkillSphere.Security.Core.Interfaces;
 
@@ -36,7 +35,6 @@ public class UserRepository : IUserRepository
     public async Task<User> GetByIdAsync(Guid id)
     {
         var entity = await _context.Users
-            .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == id)
             .ConfigureAwait(false);
 
@@ -47,7 +45,6 @@ public class UserRepository : IUserRepository
     public async Task<User> GetByLoginAsync(string username)
     {
         var entity = await _context.Users
-            .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Login == username)
             .ConfigureAwait(false);
 
@@ -58,34 +55,28 @@ public class UserRepository : IUserRepository
     public async Task<bool> ExistsByEmailAsync(string email)
     {
         return await _context.Users
-            .AnyAsync(u => u.Email.ToLower() == email.ToLower())
+            .AnyAsync(u => u.Email.ToLower().Equals(email.ToLower()))
             .ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task CreateAsync(User user)
     {
-        var entity = _mapper.Map<UserEntity>(user);
-
-        await _context.AddAsync(entity);
+        await _context.AddAsync(user);
         await _context.SaveChangesAsync();
     }
 
     /// <inheritdoc/>
     public async Task UpdateAsync(User user)
     {
-        var entity = _mapper.Map<UserEntity>(user);
-
-        _context.Users.Update(entity);
+        _context.Users.Attach(user);
         await _context.SaveChangesAsync().ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task DeleteAsync(User user)
     {
-        var entity = _mapper.Map<UserEntity>(user);
-
-        _context.Users.Remove(entity);
+        _context.Users.Remove(user);
         await _context.SaveChangesAsync().ConfigureAwait(false);
     }
 }

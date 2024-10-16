@@ -100,7 +100,7 @@ public class AuthController : ControllerBase
     /// <param name="request"> JSON объект, содержащий логин/старый пароль/новый пароль </param>
     /// <response code="200"> Успешно </response>
     /// <response code="400"> Переданные параметры не прошли валидацию </response>
-    [HttpPut("changePassword")]
+    [HttpPatch("changePassword")]
     [ProducesResponseType(typeof(Tokens), 200)]
     [ProducesResponseType(typeof(List<string>), 400)]
     public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest request)
