@@ -71,7 +71,7 @@ public class Program
         {
             options.AddDefaultPolicy(policy =>
             {
-                policy.WithOrigins("http://localhost:3000")
+                policy.AllowAnyOrigin()
                       .AllowAnyHeader()
                       .AllowAnyMethod();
             });
@@ -84,7 +84,8 @@ public class Program
 
     private static void ConfigureDI(IServiceCollection services, ConfigurationManager configuration)
     {
-        services.AddDbContext<DatabaseContext>();
+        services.AddDbContext<DatabaseContext>(options =>
+            options.UseNpgsql(configuration["DatabaseConnection"]));
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterCommand).Assembly));
         services.AddAutoMapper(typeof(ControllerMappingProfile).Assembly);

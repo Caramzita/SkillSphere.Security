@@ -18,7 +18,7 @@ namespace SkillSphere.Security.API.Controllers;
 /// Предоставляет Rest API для работы с авторизацией пользователей
 /// </summary>
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/auth")]
 [AllowAnonymous]
 public class AuthController : ControllerBase
 {

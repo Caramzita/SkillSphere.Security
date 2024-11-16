@@ -12,11 +12,6 @@ namespace SkillSphere.Security.DataAccess;
 public class DatabaseContext : DbContext
 {
     /// <summary>
-    /// Конфигурация сервиса.
-    /// </summary>
-    private readonly IConfiguration _configuration;
-
-    /// <summary>
     /// Логгер.
     /// </summary>
     private readonly ILogger<DatabaseContext> _logger;
@@ -36,9 +31,9 @@ public class DatabaseContext : DbContext
     /// </summary>
     /// <param name="configuration">Конфигурация приложения.</param>
     /// <param name="logger">Логгер для записи информации о действиях в контексте базы данных.</param>
-    public DatabaseContext(IConfiguration configuration, ILogger<DatabaseContext> logger)
+    public DatabaseContext(DbContextOptions<DatabaseContext> options, ILogger<DatabaseContext> logger) 
+        : base(options)
     {
-        _configuration = configuration;
         _logger = logger;
     }
 
@@ -57,8 +52,12 @@ public class DatabaseContext : DbContext
     /// <param name="optionsBuilder">Построитель параметров, используемый для настройки подключения.</param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DatabaseConnection"))
-            .EnableSensitiveDataLogging()
-            .LogTo(log => _logger.LogInformation(log));
+        if (!optionsBuilder.IsConfigured)
+        {
+            _logger.LogWarning("DbContextOptionsBuilder is not configured.");
+        }
+
+        optionsBuilder.EnableSensitiveDataLogging()
+                      .LogTo(log => _logger.LogInformation(log));
     }
 }

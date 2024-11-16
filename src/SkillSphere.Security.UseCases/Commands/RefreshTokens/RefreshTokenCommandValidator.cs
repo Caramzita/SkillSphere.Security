@@ -13,6 +13,7 @@ public class RefreshTokenCommandValidator : AbstractValidator<RefreshTokensComma
     public RefreshTokenCommandValidator()
     {
         RuleFor(command => command.RefreshToken)
-           .NotEmpty().WithMessage("Refresh token cannot be empty.");
+            .Cascade(CascadeMode.Stop)
+            .NotEmpty().WithMessage("Refresh token cannot be empty.");
     }
 }

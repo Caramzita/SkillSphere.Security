@@ -47,7 +47,7 @@ public class TokenService : ITokenService
 
         var token = new JwtSecurityToken(
                issuer: _jwtSettings.Issuer,
-               audience: _jwtSettings.Audience,
+               audience: "",
                claims: user.GetClaims(),
                notBefore: null,
                expires: DateTime.UtcNow.Add(expiresIn),
