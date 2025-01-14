@@ -61,7 +61,7 @@ public class TokenService : ITokenService
     /// <inheritdoc/>
     public async Task<RefreshToken> GenerateRefreshToken(Guid userId)
     {
-        var expiration = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenLifetimeInMinutes);
+        var expiration = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenLifetimeInDays);
         var token = new RefreshToken(expiration, userId);
 
         await _refreshTokenRepository.CreateAsync(token);
